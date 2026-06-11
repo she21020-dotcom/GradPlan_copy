@@ -4,42 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GradPlan — My Plan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="app">
-    <!-- Credit summary bar -->
-    <header class="summary-bar">
-      <div class="summary-stats">
-        <div class="stat">
-          <span class="stat-label">Completed</span>
-          <span class="stat-value stat-completed">59</span>
-        </div>
-        <div class="stat">
-          <span class="stat-label">In-Progress</span>
-          <span class="stat-value stat-in-progress">11</span>
-        </div>
-        <div class="stat">
-          <span class="stat-label">Planned</span>
-          <span class="stat-value stat-planned">55</span>
-        </div>
-        <div class="stat">
-          <span class="stat-label">Unplanned</span>
-          <span class="stat-value stat-unplanned">3</span>
-        </div>
-        <div class="stat stat-total">
-          <span class="stat-label">Total</span>
-          <span class="stat-value">128</span>
-        </div>
+    <header class="top-nav">
+      <div class="top-nav-left">
+        <button class="nav-btn nav-btn-primary" type="button">
+          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          MY PLANS
+        </button>
       </div>
-      <button class="btn-details" type="button" aria-expanded="false">
-        SEE DETAILS
-        <span class="chevron">&#9662;</span>
-      </button>
+
+      <div class="summary-bar" id="summary-bar"></div>
     </header>
 
     <div class="main-layout">
-      <!-- My Plan -->
       <main class="plan-panel">
         <div class="plan-header">
           <div class="plan-header-left">
@@ -52,318 +35,32 @@
           </div>
           <div class="plan-header-actions">
             <a href="#" class="link">Copy Planning</a>
-            <a href="#" class="link">Download PDF</a>
+            <a href="#" class="link link-with-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </a>
           </div>
         </div>
-
-        <!-- Transferred Credits -->
-        <section class="year-section collapsed">
-          <button class="year-toggle" type="button" aria-expanded="false">
-            <span class="chevron">&#9654;</span>
-            <span class="year-title">Transferred Credits</span>
-            <span class="year-meta">(0 Credits)</span>
-          </button>
-          <div class="year-content"></div>
-        </section>
-
-        <!-- Year 2024 -->
-        <section class="year-section collapsed">
-          <button class="year-toggle" type="button" aria-expanded="false">
-            <span class="chevron">&#9654;</span>
-            <span class="year-title">Year 2024</span>
-            <a href="#" class="view-semester link" onclick="event.stopPropagation()">View Single Semester</a>
-          </button>
-          <div class="year-content"></div>
-        </section>
-
-        <!-- Year 2025 -->
-        <section class="year-section collapsed">
-          <button class="year-toggle" type="button" aria-expanded="false">
-            <span class="chevron">&#9654;</span>
-            <span class="year-title">Year 2025</span>
-            <a href="#" class="view-semester link" onclick="event.stopPropagation()">View Single Semester</a>
-          </button>
-          <div class="year-content"></div>
-        </section>
-
-        <!-- Year 2026 (Current) — expanded -->
-        <section class="year-section expanded">
-          <button class="year-toggle" type="button" aria-expanded="true">
-            <span class="chevron">&#9660;</span>
-            <span class="year-title">Year 2026</span>
-            <span class="year-badge">(Current)</span>
-            <a href="#" class="view-semester link" onclick="event.stopPropagation()">View Single Semester</a>
-          </button>
-          <div class="year-content">
-            <div class="semesters-row">
-              <!-- Winter 2026 -->
-              <div class="semester-col">
-                <div class="semester-header">
-                  <h3>Winter 2026</h3>
-                  <span class="track-badge on-track">ON-TRACK</span>
-                </div>
-                <div class="course-list">
-                  <article class="course-card status-completed">
-                    <button class="course-edit" type="button" aria-label="Edit course">&#9998;</button>
-                    <div class="course-info">
-                      <span class="course-name">The Eternal Family</span>
-                      <span class="course-code">REL 200C</span>
-                    </div>
-                    <span class="course-credits">2</span>
-                  </article>
-                  <article class="course-card status-completed">
-                    <button class="course-edit" type="button" aria-label="Edit course">&#9998;</button>
-                    <div class="course-info">
-                      <span class="course-name">Computer Systems</span>
-                      <span class="course-code">ECEN 106</span>
-                    </div>
-                    <span class="course-credits">3</span>
-                  </article>
-                  <article class="course-card status-completed">
-                    <button class="course-edit" type="button" aria-label="Edit course">&#9998;</button>
-                    <div class="course-info">
-                      <span class="course-name">Applied Programming</span>
-                      <span class="course-code">CSE 110</span>
-                    </div>
-                    <span class="course-credits">3</span>
-                  </article>
-                  <article class="course-card status-completed">
-                    <button class="course-edit" type="button" aria-label="Edit course">&#9998;</button>
-                    <div class="course-info">
-                      <span class="course-name">Algorithm Design</span>
-                      <span class="course-code">CSE 220</span>
-                    </div>
-                    <span class="course-credits">3</span>
-                  </article>
-                  <article class="course-card status-completed variable">
-                    <button class="course-edit" type="button" aria-label="Edit course">&#9998;</button>
-                    <div class="course-info">
-                      <span class="course-name">Special Topics</span>
-                      <span class="course-code">CSE 397R</span>
-                      <span class="variable-tag">VARIABLE CREDIT</span>
-                    </div>
-                    <span class="course-credits">1</span>
-                  </article>
-                  <article class="course-card status-completed variable">
-                    <button class="course-edit" type="button" aria-label="Edit course">&#9998;</button>
-                    <div class="course-info">
-                      <span class="course-name">Special Topics</span>
-                      <span class="course-code">CSE 397R</span>
-                      <span class="variable-tag">VARIABLE CREDIT</span>
-                    </div>
-                    <span class="course-credits">1</span>
-                  </article>
-                </div>
-                <p class="semester-total">Total: <strong>11</strong></p>
-              </div>
-
-              <!-- Spring 2026 -->
-              <div class="semester-col">
-                <div class="semester-header">
-                  <h3>Spring 2026</h3>
-                  <span class="track-badge flex-track">FLEX TRACK</span>
-                </div>
-                <div class="course-list">
-                  <article class="course-card status-in-progress">
-                    <button class="course-edit" type="button" aria-label="Edit course">&#9998;</button>
-                    <div class="course-info">
-                      <span class="course-name">New Testament</span>
-                      <span class="course-code">REL 211</span>
-                    </div>
-                    <span class="course-credits">2</span>
-                  </article>
-                  <article class="course-card status-in-progress">
-                    <button class="course-edit" type="button" aria-label="Edit course">&#9998;</button>
-                    <div class="course-info">
-                      <span class="course-name">Programming W/Data Struct</span>
-                      <span class="course-code">CSE 111</span>
-                    </div>
-                    <span class="course-credits">3</span>
-                  </article>
-                  <article class="course-card status-in-progress variable">
-                    <button class="course-edit" type="button" aria-label="Edit course">&#9998;</button>
-                    <div class="course-info">
-                      <span class="course-name">Special Topics</span>
-                      <span class="course-code">CSE 397R</span>
-                      <span class="variable-tag">VARIABLE CREDIT</span>
-                    </div>
-                    <span class="course-credits">3</span>
-                  </article>
-                  <article class="course-card status-in-progress">
-                    <button class="course-edit" type="button" aria-label="Edit course">&#9998;</button>
-                    <div class="course-info">
-                      <span class="course-name">Precalculus</span>
-                      <span class="course-code">MATH 109</span>
-                    </div>
-                    <span class="course-credits">3</span>
-                  </article>
-                </div>
-                <p class="semester-total">Total: <strong>11</strong></p>
-              </div>
-
-              <!-- Fall 2026 -->
-              <div class="semester-col">
-                <div class="semester-header">
-                  <h3>Fall 2026</h3>
-                  <span class="track-badge on-track">ON-TRACK</span>
-                </div>
-                <div class="course-list">
-                  <article class="course-card status-planned">
-                    <button class="course-edit" type="button" aria-label="Edit course">&#9998;</button>
-                    <div class="course-info">
-                      <span class="course-name">Intro To Film Art And Analysis</span>
-                      <span class="course-code">TA 117</span>
-                    </div>
-                    <span class="course-credits">3</span>
-                  </article>
-                  <article class="course-card status-planned">
-                    <button class="course-edit" type="button" aria-label="Edit course">&#9998;</button>
-                    <div class="course-info">
-                      <span class="course-name">Dynamic Web Fundamentals</span>
-                      <span class="course-code">WDD 130</span>
-                    </div>
-                    <span class="course-credits">2</span>
-                  </article>
-                  <article class="course-card status-planned">
-                    <button class="course-edit" type="button" aria-label="Edit course">&#9998;</button>
-                    <div class="course-info">
-                      <span class="course-name">Calculus I</span>
-                      <span class="course-code">MATH 112X</span>
-                    </div>
-                    <span class="course-credits">4</span>
-                  </article>
-                  <article class="course-card status-planned">
-                    <button class="course-edit" type="button" aria-label="Edit course">&#9998;</button>
-                    <div class="course-info">
-                      <span class="course-name">New Testament</span>
-                      <span class="course-code">REL 211</span>
-                    </div>
-                    <span class="course-credits">2</span>
-                  </article>
-                </div>
-                <p class="semester-total">Total: <strong>11</strong></p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Year 2027 -->
-        <section class="year-section collapsed">
-          <button class="year-toggle" type="button" aria-expanded="false">
-            <span class="chevron">&#9654;</span>
-            <span class="year-title">Year 2027</span>
-            <a href="#" class="view-semester link" onclick="event.stopPropagation()">View Single Semester</a>
-          </button>
-          <div class="year-content"></div>
-        </section>
-
-        <!-- Year 2028 -->
-        <section class="year-section collapsed">
-          <button class="year-toggle" type="button" aria-expanded="false">
-            <span class="chevron">&#9654;</span>
-            <span class="year-title">Year 2028</span>
-            <a href="#" class="view-semester link" onclick="event.stopPropagation()">View Single Semester</a>
-          </button>
-          <div class="year-content"></div>
-        </section>
+        <div id="plan-years"></div>
       </main>
 
-      <!-- Requirements sidebar -->
       <aside class="requirements-panel">
         <h2>Requirements &amp; Courses</h2>
 
-        <div class="search-box">
-          <span class="search-icon">&#128269;</span>
-          <input type="search" placeholder="Find Courses..." aria-label="Find courses">
-        </div>
-        <a href="#" class="link availability-link">View Course Availability</a>
-
-        <div class="req-tabs" role="tablist">
-          <button class="req-tab" role="tab" aria-selected="false" data-tab="general">General Edu...</button>
-          <button class="req-tab active" role="tab" aria-selected="true" data-tab="degree">Degree</button>
-          <button class="req-tab" role="tab" aria-selected="false" data-tab="electives">Electives</button>
+        <div class="search-row">
+          <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" id="catalog-search" placeholder="Find Courses..." aria-label="Find courses">
+          </div>
+          <a href="#" class="link availability-link">View Course Availability</a>
         </div>
 
-        <div class="req-subtabs" role="tablist">
-          <button class="req-subtab active" role="tab" aria-selected="true">Cornerstone Requirement</button>
-          <button class="req-subtab" role="tab" aria-selected="false">Eternal Truths</button>
-          <button class="req-subtab" role="tab" aria-selected="false">First Semester</button>
-        </div>
+        <div class="req-tabs" id="req-tabs" role="tablist"></div>
+        <div class="req-subtabs" id="req-subtabs" role="tablist"></div>
 
-        <div class="req-progress-section">
-          <h3>Cornerstone Requirement</h3>
-
-          <div class="progress-bar">
-            <div class="progress-segment completed" style="width: 37.5%"></div>
-            <div class="progress-segment planned" style="width: 37.5%"></div>
-            <div class="progress-segment unplanned" style="width: 25%"></div>
-          </div>
-
-          <div class="progress-legend">
-            <span class="legend-item"><span class="dot completed"></span> Completed</span>
-            <span class="legend-item"><span class="dot planned"></span> Planned/Enrolled</span>
-            <span class="legend-item"><span class="dot unplanned"></span> Unplanned</span>
-            <span class="legend-total">8 Total</span>
-          </div>
-
-          <ul class="requirement-list">
-            <li class="requirement-item">
-              <span class="req-dot completed"></span>
-              <div class="req-details">
-                <span class="req-name">The Eternal Family</span>
-                <span class="req-code">REL 200C</span>
-                <a href="#" class="link">View Details</a>
-              </div>
-              <span class="req-credits">2</span>
-            </li>
-            <li class="requirement-item">
-              <span class="req-dot completed"></span>
-              <div class="req-details">
-                <span class="req-name">Jesus Christ And The Everlasting Gospel</span>
-                <span class="req-code">REL 250C</span>
-                <a href="#" class="link">View Details</a>
-              </div>
-              <span class="req-credits">2</span>
-            </li>
-            <li class="requirement-item">
-              <span class="req-dot planned"></span>
-              <div class="req-details">
-                <span class="req-name">Foundations Of The Re...</span>
-                <span class="req-code">REL 225C</span>
-                <a href="#" class="link">View Details</a>
-              </div>
-              <span class="req-credits">2</span>
-              <button class="req-remove" type="button" aria-label="Remove course">&minus;</button>
-            </li>
-            <li class="requirement-item">
-              <span class="req-dot planned"></span>
-              <div class="req-details">
-                <span class="req-name">New Testament</span>
-                <span class="req-code">REL 211</span>
-                <a href="#" class="link">View Details</a>
-              </div>
-              <span class="req-credits">2</span>
-            </li>
-          </ul>
-
-          <div class="req-group">
-            <h4>Book of Mormon</h4>
-            <ul class="requirement-list">
-              <li class="requirement-item">
-                <span class="req-dot unplanned"></span>
-                <div class="req-details">
-                  <span class="req-name">Teachings Of Book Of...</span>
-                  <span class="req-code">REL 121C</span>
-                  <a href="#" class="link">View Details</a>
-                </div>
-                <span class="req-credits">2</span>
-              </li>
-            </ul>
-            <button class="btn-options" type="button">
-              OR TAKE OTHER OPTIONS
-              <span class="chevron">&#9662;</span>
-            </button>
-          </div>
+        <div class="catalog-drop-zone" id="catalog-drop-zone">
+          <p class="catalog-drop-label">Drag planned courses here to remove from your plan</p>
+          <div class="catalog-list" id="catalog-list"></div>
         </div>
       </aside>
     </div>
